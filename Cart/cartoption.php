@@ -78,7 +78,20 @@ cart.init("basketwidjet", config);
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
 
-          <a class="button" href="#" class="btn btn-danger" data-dismiss="modal" onclick="cart.showWinow('bcontainer', 1)">  <img  class="iconmenu"  src="../wood/cart.PNG"  ></a> 
+          <?php
+                //Проверяем авторизован ли пользователь
+                if(!isset($_SESSION['email']) && !isset($_SESSION['vk']) ){
+                    // если нет, то выводим блок с ссылками на страницу регистрации и авторизации
+            ?>
+                         <li class="price"> <a class="buttunhat" href="authorizationmain.php">  <img  class="iconmenu "  src="../Wood/cart.PNG"  ></a> </li>                
+            <?php
+                }else{
+                   
+            ?> 
+                   <li class="price"> <a class="buttunhat" href="#" id="" onclick="cart.showWinow('bcontainer', 1)">  <img  class="iconmenu "  src="../Wood/cart.PNG"  ></a> </li>                  
+            <?php
+                }
+            ?>
         </div>
         
       </div>
